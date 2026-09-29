@@ -1,0 +1,12 @@
+using FrogGame.Application;
+using FrogGame.Transport;
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSignalR(o => o.MaximumReceiveMessageSize = 16 * 1024);
+builder.Services.AddSingleton<RoomService>();
+builder.Services.AddHostedService<RoomTicker>();
+var app = builder.Build();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+app.MapHub<GameHub>("/hubs/game");
+app.Run();

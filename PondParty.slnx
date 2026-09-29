@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/FrogGame.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FrogGame.Tests/FrogGame.Tests.csproj" />
+  </Folder>
+</Solution>
